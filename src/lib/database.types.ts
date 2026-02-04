@@ -1,0 +1,71 @@
+// Basic database types for build purposes
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      contributions: {
+        Row: {
+          id: string
+          created_at: string
+          user_id: string
+          latitude: number
+          longitude: number
+          product_image_url: string | null
+          backside_image_url: string | null
+          recycling_image_url: string | null
+          manufacturer_image_url: string | null
+          status: 'pending' | 'approved' | 'rejected'
+          notes: string | null
+          brand_suggestion: string | null
+          plastic_type_suggestion: string | null
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          user_id: string
+          latitude: number
+          longitude: number
+          product_image_url?: string | null
+          backside_image_url?: string | null
+          recycling_image_url?: string | null
+          manufacturer_image_url?: string | null
+          status?: 'pending' | 'approved' | 'rejected'
+          notes?: string | null
+          brand_suggestion?: string | null
+          plastic_type_suggestion?: string | null
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          user_id?: string
+          latitude?: number
+          longitude?: number
+          product_image_url?: string | null
+          backside_image_url?: string | null
+          recycling_image_url?: string | null
+          manufacturer_image_url?: string | null
+          status?: 'pending' | 'approved' | 'rejected'
+          notes?: string | null
+          brand_suggestion?: string | null
+          plastic_type_suggestion?: string | null
+        }
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+  }
+}
